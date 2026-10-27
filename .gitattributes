@@ -1,0 +1,6 @@
+* text=auto eol=lf
+
+# Archivos de mantenimiento fuera del zip descargable de GitHub
+.github/        export-ignore
+.gitattributes  export-ignore
+.editorconfig   export-ignore

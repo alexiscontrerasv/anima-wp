@@ -1,0 +1,69 @@
+name: Reporte de error
+description: Algo no funciona como se esperaba.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por reportar. No incluyas credenciales, URLs privadas ni datos de clientes.
+        Para problemas de seguridad usa el canal privado descrito en SECURITY.md.
+  - type: input
+    id: version
+    attributes:
+      label: Versión de Ánima
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: herramienta
+    attributes:
+      label: Herramienta, versión y modelo
+      placeholder: "Cursor 2.x · modelo usado"
+    validations:
+      required: true
+  - type: dropdown
+    id: campos
+    attributes:
+      label: Plugin de campos
+      options:
+        - Secure Custom Fields
+        - ACF PRO
+        - Otro
+    validations:
+      required: true
+  - type: dropdown
+    id: fase
+    attributes:
+      label: Fase en la que ocurrió
+      options:
+        - 0 · Configuración
+        - 1 · Inventario
+        - 2 · Base del theme
+        - 3 · Opciones generales
+        - 4 · Field groups
+        - 5 · Templates y secciones
+        - 6 · CPT y taxonomías
+        - 7 · QA
+        - Arranque o reanudación
+    validations:
+      required: true
+  - type: textarea
+    id: que-paso
+    attributes:
+      label: ¿Qué pasó?
+      description: Describe lo que hizo el agente.
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: ¿Qué esperabas?
+    validations:
+      required: true
+  - type: textarea
+    id: progreso
+    attributes:
+      label: Extracto de `_anima/PROGRESS.md` (opcional)
+      description: Solo las partes relevantes, sin datos sensibles.
+      render: markdown

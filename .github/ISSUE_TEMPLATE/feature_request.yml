@@ -1,0 +1,34 @@
+name: Propuesta de mejora
+description: Sugiere una capacidad nueva o un cambio en las reglas.
+title: "[Mejora] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problema
+    attributes:
+      label: ¿Qué problema resuelve?
+      description: Describe la situación en la que Ánima se queda corto.
+    validations:
+      required: true
+  - type: textarea
+    id: propuesta
+    attributes:
+      label: Propuesta
+      description: Qué debería hacer Ánima y en qué fase.
+    validations:
+      required: true
+  - type: textarea
+    id: alternativas
+    attributes:
+      label: Alternativas consideradas
+  - type: dropdown
+    id: impacto
+    attributes:
+      label: ¿Cambia proyectos ya iniciados?
+      description: Ayuda a decidir si es una versión MAJOR o MINOR.
+      options:
+        - "No, es compatible"
+        - "Sí, cambia el formato de _anima/ o el código generado"
+        - "No estoy seguro"
+    validations:
+      required: true
