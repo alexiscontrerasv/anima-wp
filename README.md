@@ -132,7 +132,7 @@ Reinicia Cursor y escribe `/` en el chat del agente: debería aparecer `anima`. 
 ### Ejemplo de arranque
 
 ```text
-Ánima v1.0.0 · por Alexis Contreras
+Ánima v1.0.1 · por Alexis Contreras
 
 Detecté lo siguiente. Responde "ok a todo" o corrige solo lo necesario:
 

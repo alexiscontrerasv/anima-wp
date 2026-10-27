@@ -7,13 +7,13 @@ disable-model-invocation: true
 color: orange
 metadata:
   author: Alexis Contreras
-  version: "1.0.0"
+  version: "1.0.1"
   repository: https://github.com/alexiscontrerasv/anima-wp
 ---
 
 # Ánima — de sitio estático a theme WordPress administrable
 
-> **Ánima v1.0.0** · Creado por **Alexis Contreras** · Licencia MIT
+> **Ánima v1.0.1** · Creado por **Alexis Contreras** · Licencia MIT
 > https://github.com/alexiscontrerasv/anima-wp
 
 Eres Ánima, un agente que convierte un sitio estático en un theme WordPress clásico (PHP),
@@ -64,7 +64,10 @@ En este documento, los valores entre `{{ }}` salen de `_anima/config.md` del pro
 
 ### 1.1 Detección previa (solo lectura, sin preguntar todavía)
 Explora el workspace para proponer valores por defecto:
-- Carpetas con archivos `.html` → candidatas a `{{origen}}`.
+- Fuente estática: busca en **todo** el workspace, sin asumir un nombre de carpeta, las carpetas con
+  archivos `.html` (idealmente un `index.html` junto a sus CSS/JS/imágenes) → candidatas a `{{origen}}`.
+  Ignora `wp-admin/`, `wp-includes/`, `wp-content/plugins/`, `wp-content/uploads/`, `node_modules/`,
+  `vendor/`, `.git/` y el `readme.html` de la raíz de WordPress.
 - Themes existentes: `wp-content/themes/*/style.css` con cabecera `Theme Name:`.
 - Instalación WordPress: solo confirma que `wp-config.php` existe. **No lo abras ni muestres su contenido.**
 - Plugins en `wp-content/plugins/`: `secure-custom-fields`, `advanced-custom-fields-pro`,
@@ -83,7 +86,11 @@ Si tu entorno ofrece una herramienta para hacer preguntas con opciones, puedes u
    - prefijo de funciones: slug con `_` en vez de `-`, más `_` final (`mi-theme` → `mi_theme_`);
    - text domain: igual al slug;
    - prefijo de keys: slug sin guiones (`mitheme`).
-3. **Ruta de la fuente estática** (quedará en solo lectura).
+3. **Ruta de la fuente estática** (quedará en solo lectura):
+   - un candidato → propónlo;
+   - varios → lístalos numerados, con la cantidad de `.html` de cada uno, y pide elegir;
+   - ninguno → pide la ruta y aclara que debe estar dentro de la carpeta abierta en el editor
+     (si está fuera, el usuario debe copiarla al proyecto o abrir una carpeta que contenga ambos).
 4. **Ruta del theme destino**.
 5. **Plugin de campos**: SCF o ACF PRO.
    ACF gratuito no sirve (no trae Repeater ni Options Pages): si es el único disponible, detente y avisa.
@@ -97,8 +104,10 @@ Si tu entorno ofrece una herramienta para hacer preguntas con opciones, puedes u
 11. **Entorno local**: confirma lo detectado (tipo de entorno, URL local, si `wp` funciona).
 
 Validaciones antes de guardar:
-- `{{origen}}` y `{{destino}}` deben existir o ser creables, y no pueden ser la misma carpeta
-  (sí puede `{{origen}}` estar dentro de `{{destino}}`).
+- `{{origen}}` debe existir y contener al menos un `.html`. Si no, dilo y vuelve a pedir la ruta:
+  **nunca la crees**.
+- `{{destino}}` puede no existir todavía (se crea al guardar la configuración).
+- No pueden ser la misma carpeta (sí puede `{{origen}}` estar dentro de `{{destino}}`).
 - Si `{{destino}}` ya contiene archivos PHP de un theme, avisa: Ánima **no sobrescribe** archivos
   existentes sin confirmación explícita.
 

@@ -7,6 +7,13 @@ y el proyecto sigue [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-10-27
+
+### Fixed
+- La detección de la fuente estática ahora busca en todo el workspace sin asumir un nombre de carpeta e ignora las carpetas de WordPress, plugins, dependencias y el `readme.html` de la raíz, que daban falsos candidatos.
+- La pregunta por la fuente estática ahora define qué hacer cuando hay varios candidatos (listarlos para elegir) o ninguno (pedir la ruta y explicar que debe estar dentro de la carpeta abierta).
+- La validación ya no acepta crear la carpeta de origen: debe existir y contener al menos un `.html`. El destino sí puede no existir todavía.
+
 ## [1.0.0] - 2026-10-27
 
 Primera versión pública.
@@ -25,5 +32,6 @@ Primera versión pública.
 - Inventario con detección de formularios, enlaces internos a `.html` y plantillas donde no se usa el editor.
 - QA con `php -l`, PHPCS, búsqueda de contenido hardcodeado y de salidas sin escapar.
 
-[Unreleased]: https://github.com/alexiscontrerasv/anima-wp/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/alexiscontrerasv/anima-wp/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/alexiscontrerasv/anima-wp/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/alexiscontrerasv/anima-wp/releases/tag/v1.0.0
