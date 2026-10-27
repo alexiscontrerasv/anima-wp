@@ -8,7 +8,7 @@ Agent Skill para Cursor que convierte un sitio HTML/CSS/JS en un theme clásico 
 con contenido editable vía Secure Custom Fields o ACF PRO, visualmente idéntico al original.
 
 [![Validación](https://github.com/alexiscontrerasv/anima-wp/actions/workflows/validate.yml/badge.svg)](https://github.com/alexiscontrerasv/anima-wp/actions/workflows/validate.yml)
-[![Release](https://img.shields.io/github/v/release/alexiscontrerasv/anima-wp?label=versi%C3%B3n)](https://github.com/alexiscontrerasv/anima-wp/releases)
+[![Release](https://img.shields.io/github/v/release/alexiscontrerasv/anima-wp?label=versi%C3%B3n&sort=semver)](https://github.com/alexiscontrerasv/anima-wp/releases)
 [![Licencia: MIT](https://img.shields.io/badge/licencia-MIT-blue.svg)](LICENSE)
 [![Agent Skills](https://img.shields.io/badge/formato-Agent%20Skills-orange.svg)](https://agentskills.io)
 
