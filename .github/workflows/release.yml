@@ -39,10 +39,17 @@ jobs:
           ' CHANGELOG.md > dist/notes.md
           test -s dist/notes.md
 
-      - name: Crear release
+      - name: Crear o actualizar release
         env:
           GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
         run: |
-          gh release create "${GITHUB_REF_NAME}" "dist/anima-${GITHUB_REF_NAME}.zip" \
-            --title "Ánima ${GITHUB_REF_NAME}" \
-            --notes-file dist/notes.md
+          tag="${GITHUB_REF_NAME}"
+          asset="dist/anima-${tag}.zip"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            # El release ya existe (por ejemplo, creado desde la web): se completa.
+            gh release upload "$tag" "$asset" --clobber
+            gh release edit "$tag" --title "Ánima ${tag}" --notes-file dist/notes.md
+          else
+            gh release create "$tag" "$asset" --title "Ánima ${tag}" --notes-file dist/notes.md
+          fi
